@@ -234,6 +234,15 @@
             font-size: 5rem;
         }
 
+        /* ensure image inside profile-icon is clipped to the circle */
+        .profile-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            display: block;
+        }
+
         /* Skills Section */
         .skills-grid {
             display: grid;
@@ -621,11 +630,13 @@
             <div class="about-text">
                 <p>Hello! I'm Mzwandile Majola, an enthusiastic Junior Web Developer with a strong background in web technologies and IT support.</p>
                 <p>I hold a Diploma in Information Technology from Berea College of Technology (2020-2022) and have professional experience as a Junior Web Developer at NetApps Development, where I've worked with modern web technologies to build dynamic, responsive applications.</p>
-                <p>I'm skilled in PHP, JavaScript, HTML, CSS, and MySQL, with a passion for creating user-friendly and efficient web applications. I'm eager to continue learning and adapting to new technologies that improve user experience and drive business success.</p>
+                <p>I'm skilled in PHP, Python, C#, HTML & CSS, Bootstrap, ReactJS and MySQL, with a passion for creating user-friendly and efficient web applications. I'm eager to continue learning and adapting to new technologies that improve user experience and drive business success.</p>
             </div>
             <div class="about-image">
                 <div class="profile-card">
-                    <div class="profile-icon">👨‍💻</div>
+                    <div class="profile-icon">
+                        <img src="assets/profile-image.jpg" alt="NetApps project screenshot" style="width:100%; height:100%; object-fit:cover;">
+                    </div>
                     <h3>Mzwandile Majola</h3>
                     <p style="color: var(--text-muted);">Diploma in Information Technology</p>
                     <p style="color: var(--text-muted); font-size: 0.9rem;">Berea College of Technology</p>
@@ -683,7 +694,7 @@
         <div class="projects-grid">
             <div class="project-card" onclick="transitionToProject('https://getitall.netappsdevelopment.com/')">
                 <div class="project-image">
-                    <img src="assets/getitall.png" alt="GetItAll project screenshot" style="width:100%; height:100%; object-fit:cover;">
+                    <img src="assets/getitall.png" alt="GetItAll project screenshot" style="width:100%; height:100%; object-fit:cover; display:block;" loading="lazy" decoding="async" >
                 </div>
                 <div class="project-content">
                     <h3>GetItAll <span class="project-link-indicator">→</span></h3>
@@ -709,7 +720,7 @@
                     </div>
                 </div>
             </div>
-            <div class="project-card" onclick="transitionToProject('')">
+            <div class="project-card">
                 <div class="project-image">📊</div>
                 <div class="project-content">
                     <h3>Data Dashboard (Power BI) <span class="project-link-indicator">→</span></h3>
