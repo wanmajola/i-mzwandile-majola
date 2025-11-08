@@ -95,6 +95,10 @@
             box-shadow: 0 5px 15px rgba(99, 102, 241, 0.4);
         }
 
+        #cv-mob {
+            display: none;
+        }
+
         /* Hero Section */
         .hero {
             min-height: 100vh;
@@ -577,6 +581,11 @@
 
             nav ul {
                 gap: 1rem;
+                display: none;
+            }
+
+            #cv-mob {
+                display: block;
             }
 
             .cta-buttons {
@@ -603,6 +612,7 @@
                 <li><a href="#contact">Contact</a></li>
                 <li><a href="mycv.html" class="cv-link">CV</a></li>
             </ul>
+            <a href="mycv.html" id="cv-mob" class="cv-link">CV</a>
         </div>
     </nav>
 
@@ -620,6 +630,7 @@
             <div class="cta-buttons">
                 <a href="#projects" class="btn btn-primary">View My Work</a>
                 <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                <a href="mycv.html" class="btn btn-secondary">CV</a>
             </div>
         </div>
     </section>
@@ -655,13 +666,14 @@
                 <ul class="skill-list">
                     <li>HTML5 & CSS3</li>
                     <li>Bootstrap</li>
-                    <li>JavaScript</li>
+                    <li>ReactJS</li>
                     <li>Responsive Design</li>
                 </ul>
             </div>
             <div class="skill-card">
                 <h3>⚙️ Backend Development</h3>
                 <ul class="skill-list">
+                    <li>C#</li>
                     <li>PHP</li>
                     <li>MySQL</li>
                     <li>RESTful APIs</li>
@@ -713,7 +725,7 @@
                 </div>
                 <div class="project-content">
                     <h3>NetApps Development <span class="project-link-indicator">→</span></h3>
-                    <p>Emergency reporting app prototype with location-based notifications for quick response and community safety.</p>
+                    <p>Promoting laptop repair services in Durban, making it easy for customers to find and contact the business while enhancing its professional online presence.</p>
                     <div class="project-tech">
                         <span class="tech-tag">JavaScript</span>
                         <span class="tech-tag">MySQL</span>
