@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Mzwandile Majola</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #ec4899;
+            --dark: #0f172a;
+            --dark-light: #1e293b;
+            --text: #e2e8f0;
+            --text-muted: #94a3b8;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--dark) !important;
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        html {
+            background: var(--dark) !important;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(99, 102, 241, 0.1);
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        nav .back-link {
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.3s;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            background: rgba(99, 102, 241, 0.1);
+        }
+
+        nav .back-link:hover {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            transform: translateX(-3px);
+        }
+
+        /* Main Container */
+        .cv-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 6rem 2rem 4rem;
+            animation: fadeIn 0.8s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* CV Header */
+        .cv-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 3rem;
+            background: var(--dark-light);
+            border-radius: 20px;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+        }
+
+        .cv-header h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .cv-header .title {
+            color: var(--text-muted);
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .cv-contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+
+        .cv-contact-item {
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .cv-contact-item a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .cv-contact-item a:hover {
+            color: var(--secondary);
+        }
+
+        /* CV Section */
+        .cv-section {
+            background: var(--dark-light);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            transition: all 0.3s;
+        }
+
+        .cv-section:hover {
+            border-color: var(--primary);
+            box-shadow: 0 5px 20px rgba(99, 102, 241, 0.1);
+        }
+
+        .cv-section h2 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .cv-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+
+        .cv-content {
+            color: var(--text-muted);
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-category {
+            background: rgba(99, 102, 241, 0.05);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border: 1px solid rgba(99, 102, 241, 0.1);
+            transition: all 0.3s;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-3px);
+            border-color: var(--primary);
+        }
+
+        .skill-category h3 {
+            color: var(--primary);
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+        }
+
+        .skill-category p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Work Experience */
+        .work-item {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: rgba(99, 102, 241, 0.05);
+            border-radius: 10px;
+            border-left: 3px solid var(--primary);
+            transition: all 0.3s;
+        }
+
+        .work-item:hover {
+            background: rgba(99, 102, 241, 0.08);
+            border-left-width: 5px;
+        }
+
+        .work-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .work-item h3 {
+            color: var(--primary);
+            font-size: 1.3rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .work-item .company {
+            color: var(--text);
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+            font-size: 1.05rem;
+        }
+
+        .work-item .date {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .work-item ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .work-item li {
+            color: var(--text-muted);
+            padding: 0.4rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .work-item li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* Projects */
+        .project-item {
+            margin-bottom: 1.5rem;
+            padding: 1.2rem;
+            padding-left: 1.5rem;
+            border-left: 2px solid rgba(99, 102, 241, 0.3);
+            background: rgba(99, 102, 241, 0.03);
+            border-radius: 0 8px 8px 0;
+            transition: all 0.3s;
+        }
+
+        .project-item:hover {
+            border-left-width: 4px;
+            background: rgba(99, 102, 241, 0.06);
+        }
+
+        .project-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .project-item h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.15rem;
+        }
+
+        .project-item p {
+            color: var(--text-muted);
+        }
+
+        /* Languages & Interests */
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .column-item h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .column-item p {
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+            line-height: 1.8;
+        }
+
+        /* Download Button */
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            margin: 2rem auto;
+            display: block;
+            width: fit-content;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .cv-header h1 {
+                font-size: 2rem;
+            }
+
+            .cv-header .title {
+                font-size: 1.1rem;
+            }
+
+            .cv-contact-info {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+
+            .cv-section {
+                padding: 1.5rem;
+            }
+
+            .two-column {
+                grid-template-columns: 1fr;
+            }
+
+            .cv-container {
+                padding: 5rem 1rem 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">MM</div>
+            <a href="index.html" class="back-link">
+                <span>←</span> Back to Portfolio
+            </a>
+        </div>
+    </nav>
+
+    <!-- CV Container -->
+    <div class="cv-container">
+        <!-- CV Header -->
+        <div class="cv-header">
+            <h1>MZWANDILE MAJOLA</h1>
+            <p class="title">Junior Web Developer | IT Support | Problem Solver</p>
+            <div class="cv-contact-info">
+                <span class="cv-contact-item">📍 Durban, KZN</span>
+                <span class="cv-contact-item">📱 074 802 1881</span>
+                <span class="cv-contact-item">📧 <a href="mailto:mzwandilemajola23@gmail.com">mzwandilemajola23@gmail.com</a></span>
+                <span class="cv-contact-item">💼 <a href="https://linkedin.com/in/mzwandile-majola-246a1a263" target="_blank">LinkedIn Profile</a></span>
+            </div>
+        </div>
+
+        <!-- Profile Summary -->
+        <div class="cv-section">
+            <h2>Profile Summary</h2>
+            <div class="cv-content">
+                <p>Enthusiastic Junior Web Developer with a strong background in web technologies and IT support. Skilled in PHP, JavaScript, HTML, CSS, and MySQL, with a keen interest in creating user-friendly and efficient web applications. Committed to delivering responsive and high-performance websites while working well in team settings. Eager to learn and adapt to new technologies that improve user experience and drive business success.</p>
+            </div>
+        </div>
+
+        <!-- Education -->
+        <div class="cv-section">
+            <h2>Education</h2>
+            <div class="work-item">
+                <h3>Diploma in Information Technology</h3>
+                <p class="company">Berea College of Technology</p>
+                <p class="date">2020 – 2022</p>
+            </div>
+        </div>
+
+        <!-- Technical Skills -->
+        <div class="cv-section">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Languages & Frameworks</h3>
+                    <p>PHP, JavaScript, HTML5, CSS3, Bootstrap, Python (basic), C++, C#</p>
+                </div>
+                <div class="skill-category">
+                    <h3>Database</h3>
+                    <p>MySQL</p>
+                </div>
+                <div class="skill-category">
+                    <h3>Tools</h3>
+                    <p>Visual Studio Code, Git/GitHub, XAMPP, Figma</p>
+                </div>
+                <div class="skill-category">
+                    <h3>Other Skills</h3>
+                    <p>IT Support, Troubleshooting, Networking, Data Analysis, Cross-browser Testing, REST APIs</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Work Experience -->
+        <div class="cv-section">
+            <h2>Work Experience</h2>
+            
+            <div class="work-item">
+                <h3>Junior Web Developer</h3>
+                <p class="company">NetApps Development</p>
+                <p class="date">June 2024 – May 2025</p>
+                <ul>
+                    <li>Developed dynamic and responsive web applications using PHP, MySQL, and JavaScript.</li>
+                    <li>Worked closely with UI/UX teams to create modern, mobile-friendly designs with Bootstrap.</li>
+                    <li>Built authentication systems, admin dashboards, and real-time data displays.</li>
+                    <li>Improved website speed and performance through optimized coding practices.</li>
+                    <li>Engaged in code reviews and team sprints to enhance communication and project delivery.</li>
+                </ul>
+            </div>
+
+            <div class="work-item">
+                <h3>IT Technician</h3>
+                <p class="company">Berea College of Technology</p>
+                <p class="date">March 2023 – June 2023</p>
+                <ul>
+                    <li>Provided hardware and software support to staff and students in various labs.</li>
+                    <li>Diagnosed and resolved networking issues to ensure reliable connectivity.</li>
+                    <li>Maintained compliance with data security policies and system updates.</li>
+                    <li>Assisted in setting up new systems to enhance IT workflow efficiency.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Projects -->
+        <div class="cv-section">
+            <h2>Projects</h2>
+            
+            <div class="project-item">
+                <h3>GetItAll Web App</h3>
+                <p>Created a property and services listing platform featuring user registration, search filters, and responsive layouts.</p>
+            </div>
+
+            <div class="project-item">
+                <h3>Crime Reporting App Concept</h3>
+                <p>Designed a prototype for an emergency reporting app using location-based notifications.</p>
+            </div>
+
+            <div class="project-item">
+                <h3>Data Dashboard (Power BI)</h3>
+                <p>Developed visualization dashboards from MySQL datasets to monitor user engagement and performance metrics.</p>
+            </div>
+        </div>
+
+        <!-- Languages & Interests -->
+        <div class="cv-section">
+            <div class="two-column">
+                <div class="column-item">
+                    <h3>Languages</h3>
+                    <p><strong>English</strong> — Fluent</p>
+                    <p><strong>Zulu</strong> — Fluent</p>
+                </div>
+
+                <div class="column-item">
+                    <h3>Interests</h3>
+                    <p>AI development, web app security, Deep House & Amapiano music, gaming, and exploring prediction models in Python.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Download Button -->
+        <a href="#" class="download-btn" onclick="window.print(); return false;">
+            📄 Download PDF
+        </a>
+    </div>
+
+    <script>
+        // Smooth fade-in for sections
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeIn 0.6s ease forwards';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.cv-section').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
