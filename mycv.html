@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
     <title>CV - Mzwandile Majola</title>
     <style>
         * {
@@ -346,11 +347,120 @@
             margin: 2rem auto;
             display: block;
             width: fit-content;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
         }
 
         .download-btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4);
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: white !important;
+                color: #1a1a1a !important;
+            }
+
+            html {
+                background: white !important;
+            }
+
+            nav {
+                display: none !important;
+            }
+
+            .download-btn {
+                display: none !important;
+            }
+
+            .cv-container {
+                padding: 2rem 1rem !important;
+                max-width: 100% !important;
+                margin: 0 !important;
+            }
+
+            .cv-header {
+                background: white !important;
+                border: none !important;
+                padding: 1.5rem !important;
+                page-break-after: avoid;
+            }
+
+            .cv-header h1 {
+                color: #4f46e5 !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .cv-header .title {
+                color: #666 !important;
+            }
+
+            .cv-contact-item {
+                color: #666 !important;
+            }
+
+            .cv-contact-item a {
+                color: #4f46e5 !important;
+                text-decoration: none !important;
+            }
+
+            .cv-section {
+                background: white !important;
+                border: 1px solid #e0e0e0 !important;
+                page-break-inside: avoid;
+                margin-bottom: 1.5rem !important;
+                padding: 1.5rem !important;
+            }
+
+            .cv-section h2 {
+                color: #4f46e5 !important;
+            }
+
+            .cv-section h2::after {
+                background: linear-gradient(90deg, #4f46e5, #ec4899) !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .cv-content,
+            .work-item li,
+            .project-item p,
+            .column-item p {
+                color: #333 !important;
+            }
+
+            .work-item,
+            .skill-category,
+            .project-item {
+                background: #f8f9fa !important;
+                border-color: #4f46e5 !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .work-item h3,
+            .skill-category h3,
+            .project-item h3,
+            .column-item h3 {
+                color: #4f46e5 !important;
+            }
+
+            .work-item .company {
+                color: #1a1a1a !important;
+            }
+
+            .work-item .date {
+                color: #666 !important;
+            }
+
+            .work-item li::before,
+            .skill-list li::before {
+                color: #4f46e5 !important;
+            }
         }
 
         /* Responsive */
@@ -411,13 +521,28 @@
         <div class="cv-section">
             <h2>Profile Summary</h2>
             <div class="cv-content">
-                <p>Enthusiastic Junior Web Developer with a strong foundation in Python data analytics and front-end development using React. Skilled in PHP, JavaScript, HTML, CSS, MySQL, and IT support, with a passion for building user-friendly and efficient web applications. Experienced in creating responsive and high-performance websites, collaborating effectively within team environments, and applying analytical skills to solve real-world problems. Proactive in learning and adapting to emerging technologies that enhance user experience and drive business success.</p>
+                <p>Enthusiastic Junior Web Developer with a strong background in web technologies and IT support. Skilled in PHP, JavaScript, HTML, CSS, and MySQL, with a keen interest in creating user-friendly and efficient web applications. Committed to delivering responsive and high-performance websites while working well in team settings. Eager to learn and adapt to new technologies that improve user experience and drive business success.</p>
             </div>
         </div>
 
         <!-- Education -->
         <div class="cv-section">
             <h2>Education</h2>
+            
+            <div class="work-item">
+                <h3>Azure Cloud and Data Analytics Programme</h3>
+                <p class="company">ORTSA (Organisation for Robotics Training South Africa)</p>
+                <p class="date">Completed: May 2025 | Final Score: 81%</p>
+                <ul>
+                    <li>Power BI: 89%</li>
+                    <li>Big Data Analytics: 83%</li>
+                    <li>Azure Cloud: 81%</li>
+                    <li>SQL: 78%</li>
+                    <li>Python: 75%</li>
+                    <li>Excel: Completed</li>
+                </ul>
+            </div>
+
             <div class="work-item">
                 <h3>Diploma in Information Technology</h3>
                 <p class="company">Berea College of Technology</p>
@@ -430,16 +555,20 @@
             <h2>Technical Skills</h2>
             <div class="skills-grid">
                 <div class="skill-category">
+                    <h3>Cloud & Data Analytics</h3>
+                    <p>Azure Cloud, Power BI, Big Data Analytics, SQL, Python, Excel</p>
+                </div>
+                <div class="skill-category">
                     <h3>Languages & Frameworks</h3>
-                    <p>PHP, JavaScript, HTML5, CSS3, Bootstrap, Python (basic), C++, C#</p>
+                    <p>PHP, JavaScript, HTML5, CSS3, Bootstrap, Python, C++, C#</p>
                 </div>
                 <div class="skill-category">
                     <h3>Database</h3>
-                    <p>MySQL</p>
+                    <p>MySQL, SQL Server, Database Design</p>
                 </div>
                 <div class="skill-category">
                     <h3>Tools</h3>
-                    <p>Visual Studio Code, Git/GitHub, XAMPP, Figma</p>
+                    <p>Visual Studio Code, Git/GitHub, XAMPP, Figma, Power BI</p>
                 </div>
                 <div class="skill-category">
                     <h3>Other Skills</h3>
@@ -515,12 +644,18 @@
         </div>
 
         <!-- Download Button -->
-        <a href="#" class="download-btn" onclick="window.print(); return false;">
+        <button class="download-btn" onclick="downloadPDF()">
             📄 Download PDF
-        </a>
+        </button>
     </div>
 
     <script>
+        // PDF Download Function
+        function downloadPDF() {
+            // Trigger browser print dialog
+            window.print();
+        }
+
         // Smooth fade-in for sections
         const observerOptions = {
             threshold: 0.1,
